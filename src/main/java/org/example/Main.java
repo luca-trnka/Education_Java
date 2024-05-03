@@ -11,5 +11,9 @@ public class Main {
 
         int [] array3 = {1,2,3,4};
         ArrayFunctions.arrayPrinting(array3);
+
+        int number = 5;
+        int [] array4 = ArrayFunctions.addingNumberToArray(array3, number);
+        ArrayFunctions.arrayPrinting(array4);
     }
 }

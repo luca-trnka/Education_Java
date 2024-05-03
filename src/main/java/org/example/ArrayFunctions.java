@@ -37,5 +37,13 @@ public class ArrayFunctions {
         }
         System.out.println();
     }
-
+    //Adding new number to existing array
+    public static int[] addingNumberToArray(int[] array, int number) {
+        int[] newArray = new int[array.length + 1];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        newArray[array.length] = number;
+        return newArray;
+    }
 }
