@@ -30,6 +30,12 @@ public class ArrayFunctions {
         }
         return array;
     }
-
+    //Printing of chosen array
+    public static void arrayPrinting(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
 
 }

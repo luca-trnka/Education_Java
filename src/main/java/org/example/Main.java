@@ -4,9 +4,12 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         int[] array1 = ArrayFunctions.creationOfRandomArray();
-        System.out.println(Arrays.toString(array1));
+        ArrayFunctions.arrayPrinting(array1);
 
         int[] array2 = ArrayFunctions.creationOfArraySetByUser();
-        System.out.println(Arrays.toString(array2));
+        ArrayFunctions.arrayPrinting(array2);
+
+        int [] array3 = {1,2,3,4};
+        ArrayFunctions.arrayPrinting(array3);
     }
 }
