@@ -3,32 +3,49 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         int[] array = null;
         boolean running = true;
 
-        //creating a menu for the user
-        System.out.println("Hi! Let's play with arrays!");
-        System.out.println("At first, please choose how you want to create your array:");
-        System.out.println("1. Create array manually");
-        System.out.println("2. Create random array");
-        int option = readIntFromUser("You've selected: ", scanner);
         while (running) {
+            if (array == null) {
+                array = menu1();  //Creates array by welcoming menu (menu1)
+            }
+            array = menu2(array);  // Creates array by additional menu(menu2)
+
+            if (array == null) {
+                System.out.println("The array has been deleted. Create a new one.");
+            }
+        }
+        scanner.close();
+    }
+
+    //creating a welcoming menu for user
+    private static int[] menu1() {
+        while (true) {
+            System.out.println("Hi! Let's play with arrays!");
+            System.out.println("At first, please choose how you want to create your array:");
+            System.out.println("1. Create array manually");
+            System.out.println("2. Create random array");
+            int option = readIntFromUser("Choose an option: ", scanner);
+
             if (option == 1) {
-                array = ArrayFunctions.creationOfArraySetByUser(scanner);
                 System.out.println("Array created manually:).");
-                break;
+                return ArrayFunctions.creationOfArraySetByUser(scanner);
             } else if (option == 2) {
-                array = ArrayFunctions.creationOfRandomArray();
                 System.out.println("Random array created:).");
-                break;
+                return ArrayFunctions.creationOfRandomArray();
             } else {
                 System.out.println("Invalid option, please enter 1 or 2.");
             }
         }
+    }
 
-        while (running) {
+    //creating an additional menu for user
+    private static int[] menu2(int[] array) {
+        while (true) {
             System.out.println("Now what?");
             System.out.println("1. Print the array");
             System.out.println("2. Add new number to the array");
@@ -37,58 +54,35 @@ public class Main {
             System.out.println("5. Delete number from the array");
             System.out.println("6. Remove the array");
             System.out.println("7. Exit the program");
-            int option2 = readIntFromUser("You've selected: ", scanner);
+            int option2 = readIntFromUser("Choose an option: ", scanner);
 
-            try {
-                if (option2 == 1) {
-                    if (array != null) {
-                        ArrayFunctions.arrayPrinting(array);
-                    } else {
-                        System.out.println("No array created:(.");
-                    }
-                } else if (option2 == 2) {
-                    if (array != null) {
-                        int newNumber = readIntFromUser("Enter a number to add: ", scanner);
-                        array = ArrayFunctions.addingNumberToArray(array, newNumber);
-                        System.out.println("Number added;).");
-                    } else {
-                        System.out.println("No array exists. Create some array first;).");
-                    }
-                } else if (option2 == 3) {
-                    if (array != null) {
-                        System.out.println("The largest number is: " + ArrayFunctions.findingMaxNumber(array));
-                    } else {
-                        System.out.println("No array exists:(.");
-                    }
-                } else if (option2 == 4) {
-                    if (array != null) {
-                        System.out.println("The smallest number is: " + ArrayFunctions.findingMinNumber(array));
-                    } else {
-                        System.out.println("No array exists:(.");
-                    }
-                } else if (option2 == 5) {
-                    if (array != null) {
-                        int numberToRemove = readIntFromUser("Enter a number to remove: ", scanner);
-                        boolean onlyFirst = readYesNoFromUser("Remove only the first occurrence? (yes/no): ", scanner);
-                        array = ArrayFunctions.deleteNumberFromArray(array, numberToRemove, onlyFirst);
-                        System.out.println("Number removed;).");
-                    } else {
-                        System.out.println("No array exists:(. Create an array first;).");
-                    }
-                } else if (option2 == 6) {
-                    array = ArrayFunctions.removeArray(array);
-                    System.out.println("Array deleted;).");
-                } else if (option2 == 7) {
-                    running = false;
-                    System.out.println("Exiting program. Bye:(");
-                } else {
-                    System.out.println("Invalid option, try again;).");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input, please enter a number;).");
+            if (option2 == 1) {
+                ArrayFunctions.arrayPrinting(array);
+            } else if (option2 == 2) {
+                int newNumber = readIntFromUser("Enter a number to add: ", scanner);
+                array = ArrayFunctions.addingNumberToArray(array, newNumber);
+                System.out.println("Number added;).");
+            } else if (option2 == 3) {
+                System.out.println("The largest number is: " + ArrayFunctions.findingMaxNumber(array));
+            } else if (option2 == 4) {
+                System.out.println("The smallest number is: " + ArrayFunctions.findingMinNumber(array));
+            } else if (option2 == 5) {
+                int numberToRemove = readIntFromUser("Enter a number to remove: ", scanner);
+                boolean onlyFirst = readYesNoFromUser("Remove only the first occurrence? (yes/no): ", scanner);
+                array = ArrayFunctions.deleteNumberFromArray(array, numberToRemove, onlyFirst);
+                System.out.println("Number removed;).");
+            } else if (option2 == 6) {
+                array = ArrayFunctions.removeArray(array);
+                System.out.println("Array deleted;).");
+                return array;
+            } else if (option2 == 7) {
+                System.out.println("Exiting program. Bye:(");
+                return array;
+            } else {
+                System.out.println("Invalid option, try again;).");
             }
         }
-        scanner.close();
+
     }
 
     private static int readIntFromUser(String prompt, Scanner scanner) {
