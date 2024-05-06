@@ -21,7 +21,10 @@ public class Main {
         ArrayFunctions.arrayPrinting(array4);
 
         int maxNumber = ArrayFunctions.findingMaxNumber(array4);
-        System.out.print("The Largest number from previous array is: " + maxNumber);
+        System.out.println("The Largest number from previous array is: " + maxNumber);
+
+        int minNumber = ArrayFunctions.findingMinNumber(array4);
+        System.out.println("The Smallest number from previous array is: " + minNumber);
 
     }
 }

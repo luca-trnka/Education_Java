@@ -58,6 +58,18 @@ public class ArrayFunctions {
         return maxNumber;
     }
 
+    //Looking for the min number from given array
+    public static int findingMinNumber(int[] array) {
+        int minNumber = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < minNumber) {
+                minNumber = array[i];
+            }
+        }
+        return minNumber;
+    }
+
+
 
 
 }
