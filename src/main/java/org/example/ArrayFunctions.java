@@ -47,5 +47,17 @@ public class ArrayFunctions {
         return newArray;
     }
 
+    //Looking for the max number from given array
+    public static int findingMaxNumber(int[] array) {
+        int maxNumber = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > maxNumber) {
+                maxNumber = array[i];
+            }
+        }
+        return maxNumber;
+    }
+
+
 
 }

@@ -1,5 +1,4 @@
 package org.example;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,9 +15,13 @@ public class Main {
         System.out.print("Printing of chosen array: ");
         ArrayFunctions.arrayPrinting(array3);
 
-        int number = 5;
+        int number = 77;
         int [] array4 = ArrayFunctions.addingNumberToArray(array3, number);
         System.out.print("Adding new number to existing array: ");
         ArrayFunctions.arrayPrinting(array4);
+
+        int maxNumber = ArrayFunctions.findingMaxNumber(array4);
+        System.out.print("The Largest number from previous array is: " + maxNumber);
+
     }
 }

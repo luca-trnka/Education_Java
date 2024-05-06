@@ -1,14 +1,14 @@
 
-Œ	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆõÙ¦J$17ac7d34-52fa-4b35-aa85-43086206a6d0
-‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š˜øëøÿÿÿÿJ$00a0107a-730f-4d51-83de-c9aafddd6a96
-v
-java:S1118":Add a private constructor to hide the implicit public one.(´¹µ¯J$2f9c36c9-0b88-4538-a1da-8d7852331853
-Y
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆõÙ¦8–ï¦éô1J$61210e3f-ac4e-42d3-a7bf-f7bdb8177102
+˜	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š˜øëøÿÿÿÿ8–ï¦éô1J$05b5aa2b-8279-4ba6-a649-7f3c511601d2
+}
+java:S1118":Add a private constructor to hide the implicit public one.(´¹µ¯8³ï¦éô1J$8180ffcb-12cb-4ff4-94cf-fdf0549bf9f8
+`
 java:S2119
-"Save and re-use this "Random".(¼İÅfJ$83be47af-0cc7-4c2c-ac1f-24e289a565e0
-k	java:S106"+Replace this use of System.out by a logger.(¿Şà„şÿÿÿÿJ$76fc9c73-6844-4a21-b8c9-fdb11c2f4b06
-k	java:S106"+Replace this use of System.out by a logger.(¥ÕõéøÿÿÿÿJ$98e4ba46-fa00-4b9d-a31e-da6d4dc6a1fb
-k	java:S106$"+Replace this use of System.out by a logger.(¦Öç²ûÿÿÿÿJ$e82557af-2fb5-4bb1-98e7-50aae07a7b7e
-k	java:S106&"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿJ$7ab1ca2a-5203-46f7-985a-7f066db0fc23
-•
-java:S3012,"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(ğ”ÊJ$d727f35e-2fdf-444d-bd96-1ffd185c0b09
+"Save and re-use this "Random".(¼İÅf8ºï¦éô1J$6be9bba6-cc34-4a87-b062-1f7346126666
+r	java:S106"+Replace this use of System.out by a logger.(¿Şà„şÿÿÿÿ8Äï¦éô1J$623f9b3e-85c3-4952-86fe-885051ee54c1
+r	java:S106"+Replace this use of System.out by a logger.(¥Õõéøÿÿÿÿ8Æï¦éô1J$abf731a3-bf3a-4a1b-b172-2b56f162546f
+r	java:S106$"+Replace this use of System.out by a logger.(¦Öç²ûÿÿÿÿ8Èï¦éô1J$e47b037a-ff63-4156-9c3e-342eed626e89
+r	java:S106&"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8Éï¦éô1J$778d185e-f53f-4c8f-8e8e-475199617fdb
+œ
+java:S3012,"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(ğ”Ê8Ëï¦éô1J$f2cec33c-ffe3-4fe0-a4b5-c68a9aad6d1e

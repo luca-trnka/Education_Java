@@ -1,7 +1,6 @@
 
-f	java:S106"+Replace this use of System.out by a logger.(ŞŒÊ¤J$52a1f650-eb32-4571-a358-03ba94ade14b
-f	java:S106"+Replace this use of System.out by a logger.(Í¬¨·J$25381961-f6a8-4174-84c7-1ca1c82aaee7
-k	java:S106"+Replace this use of System.out by a logger.(‘·ÊûÿÿÿÿJ$f991d0f7-c9e8-4484-af6e-246b4dfa5726
-f	java:S106"+Replace this use of System.out by a logger.(²í…£J$c45c28d5-3c44-4b8b-94fd-f78cbfbb550a
-n
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜ÉüÿÿÿÿJ$0fe3236a-beff-4506-b7fe-d9f6945ba23d
+m	java:S106"+Replace this use of System.out by a logger.(ŞŒÊ¤8Ş—µéô1J$3f7ce398-c0bc-4fa4-90d2-64de5a26553c
+m	java:S106"+Replace this use of System.out by a logger.(Í¬¨·8à—µéô1J$d7ca0e89-8b2f-41e1-b06e-c449791cebd7
+r	java:S106"+Replace this use of System.out by a logger.(‘·Êûÿÿÿÿ8á—µéô1J$c65c1304-e236-41e7-ad41-97b9532f7a28
+m	java:S106"+Replace this use of System.out by a logger.(²í…£8ã—µéô1J$efe591b1-3fd6-4726-ab7f-8036b3ed9e11
+m	java:S106"+Replace this use of System.out by a logger.(—±Èé8å—µéô1J$d80d8327-5dd9-4615-b6f2-f0bb62cedfad
