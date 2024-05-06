@@ -21,11 +21,11 @@ public class ArrayFunctions {
     //Creation of array with length and numbers set by user inputs
     public static int[] creationOfArraySetByUser() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the length of array: ");
+        System.out.print("Enter the length of array -> ");
         int length = scanner.nextInt();
         int[] array = new int[length];
         for (int i = 0; i < length; i++) {
-            System.out.print("Enter the number on position " + (i) + ": ");
+            System.out.print("Enter the number on position " + (i) + "-> ");
             array[i] = scanner.nextInt();
         }
         return array;
@@ -46,4 +46,6 @@ public class ArrayFunctions {
         newArray[array.length] = number;
         return newArray;
     }
+
+
 }
