@@ -26,5 +26,8 @@ public class Main {
         int minNumber = ArrayFunctions.findingMinNumber(array4);
         System.out.println("The Smallest number from previous array is: " + minNumber);
 
+        int [] array5 = ArrayFunctions.deleteNumberFromArray(array4, 8, false);
+        System.out.print("Array after deletion of given number: ");
+        ArrayFunctions.arrayPrinting(array5);
     }
 }

@@ -69,7 +69,39 @@ public class ArrayFunctions {
         return minNumber;
     }
 
-
-
+    //Delete given number from array
+    public static int[] deleteNumberFromArray(int[] array, int number, boolean onlyFirst) {
+        int count = 0;
+        for (int i = 0; i <array.length; i++) { //Looking for amount of the given number in given array
+            if (array[i] == number) {
+                count++;
+                if (onlyFirst) {
+                    break; //If it should delete only first matching number, it should stop after it will find it
+                }
+            }
+        }
+        if (count == 0) { //If given number is not there, it will return original array
+            return array;
+        }
+        int remainToDelete; //Setting how many times it will delete the number
+        if (onlyFirst) {
+            remainToDelete = 1;
+        } else {
+            remainToDelete = count;
+        }
+        //Creation of new array with new length (depends on the count of deletions)
+        int[] newArray = new int[array.length - remainToDelete];
+        int newIndex = 0;
+        int alreadyDeleted = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != number || alreadyDeleted >= remainToDelete) {
+                newArray[newIndex] = array[i];
+                newIndex++;
+            } else {
+                alreadyDeleted++; // Increment the count of removed occurrences.
+            }
+        }
+        return newArray;
+    }
 
 }
