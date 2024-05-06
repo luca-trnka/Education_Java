@@ -19,9 +19,8 @@ public class Main {
             System.out.println("7. Delete number from the array");
             System.out.println("8. Remove the array");
             System.out.println("9. Exit the program");
-            System.out.print("Select an option: ");
 
-            int option = scanner.nextInt();
+            int option = readIntFromUser("Select an option: ", scanner);
             System.out.println("You selected: " + option);
 
             try {
@@ -29,8 +28,12 @@ public class Main {
                     array = ArrayFunctions.creationOfRandomArray();
                     System.out.println("Random array created;).");
                 } else if (option == 2) {
-                    array = ArrayFunctions.creationOfArraySetByUser();
-                    System.out.println("Array created manually;).");
+                    array = ArrayFunctions.creationOfArraySetByUser(scanner);
+                    if (array.length > 0) {
+                        System.out.println("Array created manually:).");
+                    } else {
+                        System.out.println("Array creation failed:(. Try again.");
+                    }
                 } else if (option == 3) {
                     if (array != null) {
                         ArrayFunctions.arrayPrinting(array);
@@ -39,8 +42,7 @@ public class Main {
                     }
                 } else if (option == 4) {
                     if (array != null) {
-                        System.out.print("Enter a number to add: ");
-                        int newNumber = scanner.nextInt();
+                        int newNumber = readIntFromUser("Enter a number to add: ", scanner);
                         array = ArrayFunctions.addingNumberToArray(array, newNumber);
                         System.out.println("Number added;).");
                     } else {
@@ -60,10 +62,8 @@ public class Main {
                     }
                 } else if (option == 7) {
                     if (array != null) {
-                        System.out.print("Enter a number to remove: ");
-                        int numberToRemove = scanner.nextInt();
-                        System.out.print("Remove only the first occurrence? (yes/no): ");
-                        boolean onlyFirst = scanner.next().equalsIgnoreCase("yes");
+                        int numberToRemove = readIntFromUser("Enter a number to remove: ", scanner);
+                        boolean onlyFirst = readYesNoFromUser("Remove only the first occurrence? (yes/no): ", scanner);
                         array = ArrayFunctions.deleteNumberFromArray(array, numberToRemove, onlyFirst);
                         System.out.println("Number removed;).");
                     } else {
@@ -83,6 +83,30 @@ public class Main {
             }
         }
         scanner.close();
+    }
+    private static int readIntFromUser(String prompt, Scanner scanner) {
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.nextLine();
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input, please enter a number.");
+            }
+        }
+    }
+    private static boolean readYesNoFromUser(String prompt, Scanner scanner) {
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.nextLine().trim().toLowerCase();
+            if (input.equals("yes")) {
+                return true;
+            } else if (input.equals("no")) {
+                return false;
+            } else {
+                System.out.println("Invalid input, please enter 'yes' or 'no'.");
+            }
+        }
     }
 
 }

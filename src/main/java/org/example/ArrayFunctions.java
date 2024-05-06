@@ -18,15 +18,19 @@ public class ArrayFunctions {
         return array;
     }
 
-    //Creation of array with length and numbers set by user inputs
-    public static int[] creationOfArraySetByUser() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the length of array -> ");
-        int length = scanner.nextInt();
-        int[] array = new int[length];
-        for (int i = 0; i < length; i++) {
-            System.out.print("Enter the number on position " + (i) + "-> ");
-            array[i] = scanner.nextInt();
+    //Creation of array with numbers set by user inputs
+    public static int[] creationOfArraySetByUser(Scanner scanner) {
+        System.out.print("Enter numbers separated by commas (f.e. \"1,2,3\"): ");
+        String input = scanner.nextLine();  //Reads all row of String
+        String[] arrayOfStringNumbers = input.split(",");  //Splits whole String into array of StringNumbers
+        int[] array = new int[arrayOfStringNumbers.length];
+        for (int i = 0; i < arrayOfStringNumbers.length; i++) {
+            try {
+                array[i] = Integer.parseInt(arrayOfStringNumbers[i].trim());  //Remakes every StringNumber to Integer
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input: '" + arrayOfStringNumbers[i] + "' is not a valid integer.");
+                return new int[0];  //In case of wrong format, it will return empty array
+            }
         }
         return array;
     }
