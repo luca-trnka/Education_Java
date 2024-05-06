@@ -29,5 +29,8 @@ public class Main {
         int [] array5 = ArrayFunctions.deleteNumberFromArray(array4, 8, false);
         System.out.print("Array after deletion of given number: ");
         ArrayFunctions.arrayPrinting(array5);
+
+        int [] array6 = ArrayFunctions.removeArray(array5);
+        System.out.println("Array after clearing: " + (array6 == null ? "removed" : "not removed properly"));
     }
 }

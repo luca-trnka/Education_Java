@@ -104,4 +104,8 @@ public class ArrayFunctions {
         return newArray;
     }
 
+    public static int[] removeArray(int[] array) {
+        return null;
+    }
+
 }
