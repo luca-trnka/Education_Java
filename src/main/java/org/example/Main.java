@@ -22,6 +22,67 @@ public class Main {
             System.out.print("Select an option: ");
 
             int option = scanner.nextInt();
+            System.out.println("You selected: " + option);
+
+            try {
+                if (option == 1) {
+                    array = ArrayFunctions.creationOfRandomArray();
+                    System.out.println("Random array created;).");
+                } else if (option == 2) {
+                    array = ArrayFunctions.creationOfArraySetByUser();
+                    System.out.println("Array created manually;).");
+                } else if (option == 3) {
+                    if (array != null) {
+                        ArrayFunctions.arrayPrinting(array);
+                    } else {
+                        System.out.println("No array created:(.");
+                    }
+                } else if (option == 4) {
+                    if (array != null) {
+                        System.out.print("Enter a number to add: ");
+                        int newNumber = scanner.nextInt();
+                        array = ArrayFunctions.addingNumberToArray(array, newNumber);
+                        System.out.println("Number added;).");
+                    } else {
+                        System.out.println("No array exists. Create some array first;).");
+                    }
+                } else if (option == 5) {
+                    if (array != null) {
+                        System.out.println("The largest number is: " + ArrayFunctions.findingMaxNumber(array));
+                    } else {
+                        System.out.println("No array exists:(.");
+                    }
+                } else if (option == 6) {
+                    if (array != null) {
+                        System.out.println("The smallest number is: " + ArrayFunctions.findingMinNumber(array));
+                    } else {
+                        System.out.println("No array exists:(.");
+                    }
+                } else if (option == 7) {
+                    if (array != null) {
+                        System.out.print("Enter a number to remove: ");
+                        int numberToRemove = scanner.nextInt();
+                        System.out.print("Remove only the first occurrence? (yes/no): ");
+                        boolean onlyFirst = scanner.next().equalsIgnoreCase("yes");
+                        array = ArrayFunctions.deleteNumberFromArray(array, numberToRemove, onlyFirst);
+                        System.out.println("Number removed;).");
+                    } else {
+                        System.out.println("No array exists:(. Create an array first;).");
+                    }
+                } else if (option == 8) {
+                    array = ArrayFunctions.removeArray(array);
+                    System.out.println("Array deleted;).");
+                } else if (option == 9) {
+                    running = false;
+                    System.out.println("Exiting program. Bye:(");
+                } else {
+                    System.out.println("Invalid option, try again;).");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input, please enter a number;).");
+            }
         }
+        scanner.close();
     }
+
 }
