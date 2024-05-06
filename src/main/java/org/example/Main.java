@@ -1,36 +1,27 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] array = null;
+        boolean running = true;
 
-        int[] array1 = ArrayFunctions.creationOfRandomArray();
-        System.out.print("Random creation of array: ");
-        ArrayFunctions.arrayPrinting(array1);
+        while (running) {  //creating a menu for the user
+            System.out.println("Let's play with arrays!");
+            System.out.println("1. Create random array");
+            System.out.println("2. Create array manually");
+            System.out.println("3. Print the array");
+            System.out.println("4. Add new number to the array");
+            System.out.println("5. Find the largest number from the array");
+            System.out.println("6. Find the smallest number from the array");
+            System.out.println("7. Delete number from the array");
+            System.out.println("8. Remove the array");
+            System.out.println("9. Exit the program");
+            System.out.print("Select an option: ");
 
-        int[] array2 = ArrayFunctions.creationOfArraySetByUser();
-        System.out.print("Manual creation of array: ");
-        ArrayFunctions.arrayPrinting(array2);
-
-        int [] array3 = {1,2,3,4};
-        System.out.print("Printing of chosen array: ");
-        ArrayFunctions.arrayPrinting(array3);
-
-        int number = 77;
-        int [] array4 = ArrayFunctions.addingNumberToArray(array3, number);
-        System.out.print("Adding new number to existing array: ");
-        ArrayFunctions.arrayPrinting(array4);
-
-        int maxNumber = ArrayFunctions.findingMaxNumber(array4);
-        System.out.println("The Largest number from previous array is: " + maxNumber);
-
-        int minNumber = ArrayFunctions.findingMinNumber(array4);
-        System.out.println("The Smallest number from previous array is: " + minNumber);
-
-        int [] array5 = ArrayFunctions.deleteNumberFromArray(array4, 8, false);
-        System.out.print("Array after deletion of given number: ");
-        ArrayFunctions.arrayPrinting(array5);
-
-        int [] array6 = ArrayFunctions.removeArray(array5);
-        System.out.println("Array after clearing: " + (array6 == null ? "removed" : "not removed properly"));
+            int option = scanner.nextInt();
+        }
     }
 }
