@@ -32,8 +32,18 @@ public class Main {
             int option = readIntFromUser("Choose an option: ", scanner);
 
             if (option == 1) {
-                System.out.println("Array created manually:).");
-                return ArrayFunctions.creationOfArraySetByUser(scanner);
+                while (true) {
+                    System.out.println("Enter numbers separated by commas (f.e. \"1,2,3\"): ");
+                    String input = scanner.nextLine();  //Reads whole row of String
+                    int [] array = ArrayFunctions.creationOfArraySetByUser(input);
+                    if (array.length > 0) {
+                        System.out.println("Array created manually:).");
+                        return array;
+                    } else {
+                        System.out.println("Try it again;)!");
+                    }
+                }
+
             } else if (option == 2) {
                 System.out.println("Random array created:).");
                 return ArrayFunctions.creationOfRandomArray();

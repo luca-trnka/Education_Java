@@ -20,29 +20,19 @@ public class ArrayFunctions {
     }
 
     //Creation of array with numbers set by user inputs
-    public static int[] creationOfArraySetByUser(Scanner scanner) {
-        while (true) {
-            System.out.println("Enter numbers separated by commas (f.e. \"1,2,3\"): ");
-            String input = scanner.nextLine();  //Reads all row of String
-            String[] arrayOfStringNumbers = input.split(",");  //Splits whole String into array of StringNumbers
+    public static int[] creationOfArraySetByUser(String input) {
+        String[] arrayOfStringNumbers = input.split(",");  //Splits whole String into array of StringNumbers
+        int[] array = new int[arrayOfStringNumbers.length];
 
-            int[] array = new int[arrayOfStringNumbers.length];
-            boolean validInput = true;
-
-            for (int i = 0; i < arrayOfStringNumbers.length; i++) {
-                try {
-                    array[i] = Integer.parseInt(arrayOfStringNumbers[i].trim());  //Remakes every StringNumber to Integer
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid input: '" + arrayOfStringNumbers[i] + "' is not a valid integer.");
-                    validInput = false;
-                    break;
-                }
-            }
-
-            if (validInput) {
-                return array;
+        for (int i = 0; i < arrayOfStringNumbers.length; i++) {
+            try {
+                array[i] = Integer.parseInt(arrayOfStringNumbers[i].trim());  //Remakes every StringNumber to Integer
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input: '" + arrayOfStringNumbers[i] + "' is not a valid integer.");
+                array = new int[0];
             }
         }
+        return array;
     }
 
     //Printing of chosen array

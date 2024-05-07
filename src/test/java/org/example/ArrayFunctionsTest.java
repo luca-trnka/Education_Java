@@ -22,10 +22,12 @@ public class ArrayFunctionsTest {
     public void testCreationOfArraySetByUser() {
         //ideal format of user input
         String correctInput = "1, 2, 3, 4, 5";
-        Scanner scanner = new Scanner(correctInput);
-        int[] array = ArrayFunctions.creationOfArraySetByUser(scanner);
+        String incorrectInput = "hello";
+        int[] array = ArrayFunctions.creationOfArraySetByUser(correctInput);
+        int[] array2 = ArrayFunctions.creationOfArraySetByUser(incorrectInput);
 
         assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
+        assertEquals(0, array2.length);
     }
 
     @Test
