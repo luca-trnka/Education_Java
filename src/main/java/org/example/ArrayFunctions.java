@@ -1,10 +1,8 @@
 package org.example;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class ArrayFunctions {
-
 
     //Creation of random array with random length (1-10) and random ints with values (-100 -> +100)
     public static int[] creationOfRandomArray() {
