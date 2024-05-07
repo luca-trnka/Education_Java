@@ -23,7 +23,7 @@ public class Main {
     }
 
     //creating a welcoming menu for user
-    private static int[] menu1() {
+    public static int[] menu1() {
         while (true) {
             System.out.println("Hi! Let's play with arrays!");
             System.out.println("At first, please choose how you want to create your array:");
@@ -54,7 +54,7 @@ public class Main {
     }
 
     //creating an additional menu for user
-    private static int[] menu2(int[] array) {
+    public static int[] menu2(int[] array) {
         while (true) {
             System.out.println("Now what?");
             System.out.println("1. Print the array");
@@ -95,7 +95,7 @@ public class Main {
 
     }
 
-    private static int readIntFromUser(String prompt, Scanner scanner) {
+    public static int readIntFromUser(String prompt, Scanner scanner) {
         while (true) {
             System.out.print(prompt);
             String input = scanner.nextLine();
@@ -107,7 +107,7 @@ public class Main {
         }
     }
 
-    private static boolean readYesNoFromUser(String prompt, Scanner scanner) {
+    public static boolean readYesNoFromUser(String prompt, Scanner scanner) {
         while (true) {
             System.out.print(prompt);
             String input = scanner.nextLine().trim().toLowerCase();
