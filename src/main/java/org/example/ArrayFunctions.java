@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class ArrayFunctions {
 
+
     //Creation of random array with random length (1-10) and random ints with values (-100 -> +100)
     public static int[] creationOfRandomArray() {
         Random random = new Random();
@@ -20,20 +21,30 @@ public class ArrayFunctions {
 
     //Creation of array with numbers set by user inputs
     public static int[] creationOfArraySetByUser(Scanner scanner) {
-        System.out.print("Enter numbers separated by commas (f.e. \"1,2,3\"): ");
-        String input = scanner.nextLine();  //Reads all row of String
-        String[] arrayOfStringNumbers = input.split(",");  //Splits whole String into array of StringNumbers
-        int[] array = new int[arrayOfStringNumbers.length];
-        for (int i = 0; i < arrayOfStringNumbers.length; i++) {
-            try {
-                array[i] = Integer.parseInt(arrayOfStringNumbers[i].trim());  //Remakes every StringNumber to Integer
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input: '" + arrayOfStringNumbers[i] + "' is not a valid integer.");
-                return new int[0];  //In case of wrong format, it will return empty array
+        while (true) {
+            System.out.println("Enter numbers separated by commas (f.e. \"1,2,3\"): ");
+            String input = scanner.nextLine();  //Reads all row of String
+            String[] arrayOfStringNumbers = input.split(",");  //Splits whole String into array of StringNumbers
+
+            int[] array = new int[arrayOfStringNumbers.length];
+            boolean validInput = true;
+
+            for (int i = 0; i < arrayOfStringNumbers.length; i++) {
+                try {
+                    array[i] = Integer.parseInt(arrayOfStringNumbers[i].trim());  //Remakes every StringNumber to Integer
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input: '" + arrayOfStringNumbers[i] + "' is not a valid integer.");
+                    validInput = false;
+                    break;
+                }
+            }
+
+            if (validInput) {
+                return array;
             }
         }
-        return array;
     }
+
     //Printing of chosen array
     public static void arrayPrinting(int[] array) {
         for (int i = 0; i < array.length; i++) {
