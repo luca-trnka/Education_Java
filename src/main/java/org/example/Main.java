@@ -3,19 +3,19 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
+
 
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
         int[] array = null;
        // boolean running = true;
         boolean [] running = new boolean[]{true};
 
         while (running[0]) {
             if (array == null) {
-                array = menu1();  //Creates array by welcoming menu (menu1)
+                array = menu1(scanner);  //Creates array by welcoming menu (menu1)
             }
-            array = menu2(array, running);  //Creates array by additional menu(menu2)
+            array = menu2(array, running, scanner);  //Creates array by additional menu(menu2)
 
             if (array == null && running[0]) {
                 System.out.println("The array has been deleted. Create a new one.");
@@ -25,7 +25,7 @@ public class Main {
     }
 
     //creating a welcoming menu for user
-    public static int[] menu1() {
+    public static int[] menu1(Scanner scanner) {
         while (true) {
             System.out.print(Menu.menu1());
             int option = readIntFromUser(Menu.chooseOption, scanner);
@@ -53,7 +53,7 @@ public class Main {
     }
 
     //creating an additional menu for user
-    public static int[] menu2(int[] array, boolean [] running) {
+    public static int[] menu2(int[] array, boolean [] running, Scanner scanner) {
 
         while (true) {
             System.out.print(Menu.menu2());
