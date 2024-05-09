@@ -6,16 +6,18 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int[] array = null;
-        boolean running = true;
 
-        while (running) {
+        int[] array = null;
+       // boolean running = true;
+        boolean [] running = new boolean[]{true};
+
+        while (running[0]) {
             if (array == null) {
                 array = menu1();  //Creates array by welcoming menu (menu1)
             }
-            array = menu2(array);  // Creates array by additional menu(menu2)
+            array = menu2(array, running);  //Creates array by additional menu(menu2)
 
-            if (array == null) {
+            if (array == null && running[0]) {
                 System.out.println("The array has been deleted. Create a new one.");
             }
         }
@@ -25,11 +27,8 @@ public class Main {
     //creating a welcoming menu for user
     public static int[] menu1() {
         while (true) {
-            System.out.println("Hi! Let's play with arrays!");
-            System.out.println("At first, please choose how you want to create your array:");
-            System.out.println("1. Create array manually");
-            System.out.println("2. Create random array");
-            int option = readIntFromUser("Choose an option: ", scanner);
+            System.out.print(Menu.menu1());
+            int option = readIntFromUser(Menu.chooseOption, scanner);
 
             if (option == 1) {
                 while (true) {
@@ -54,17 +53,11 @@ public class Main {
     }
 
     //creating an additional menu for user
-    public static int[] menu2(int[] array) {
+    public static int[] menu2(int[] array, boolean [] running) {
+
         while (true) {
-            System.out.println("Now what?");
-            System.out.println("1. Print the array");
-            System.out.println("2. Add new number to the array");
-            System.out.println("3. Find the largest number from the array");
-            System.out.println("4. Find the smallest number from the array");
-            System.out.println("5. Delete number from the array");
-            System.out.println("6. Remove the array");
-            System.out.println("7. Exit the program");
-            int option2 = readIntFromUser("Choose an option: ", scanner);
+            System.out.print(Menu.menu2());
+            int option2 = readIntFromUser(Menu.chooseOption, scanner);
 
             if (option2 == 1) {
                 ArrayFunctions.arrayPrinting(array);
@@ -87,7 +80,8 @@ public class Main {
                 return array;
             } else if (option2 == 7) {
                 System.out.println("Exiting program. Bye:(");
-                return array;
+                running[0] = false;
+                return null;
             } else {
                 System.out.println("Invalid option, try again;).");
             }

@@ -39,14 +39,48 @@ public class MainTest {
         Main.menu1();
 
         //verifying the output
-        String expectedOutput = "Hi! Let's play with arrays!\r\n" +
-                "At first, please choose how you want to create your array:\r\n" +
-                "1. Create array manually\r\n" +
-                "2. Create random array\r\n" +
-                "Choose an option: " +
+        String expectedOutput = Menu.menu1() + Menu.chooseOption +
                 "Enter numbers separated by commas (f.e. \"1,2,3\"): \r\n" +
                 "Array created manually:).\r\n";
         assertEquals(expectedOutput, outContent.toString());
     }
+
+    @Test
+    public void testMenu1_CreateRandomArray() {
+        //preparing mock input
+        String input = "2\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        //executing the method
+        Main.menu1();
+
+        //verifying the output
+        String expectedOutput = Menu.menu1() + Menu.chooseOption +
+                "Random array created:).\r\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testMenu1_WrongOptionCorrectionExit() {
+        //preparing mock input
+        String input = "3\n2\n7\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        //executing the method
+        Main.main(new String[0]);
+
+        //verifying the output
+        String expectedOutput = Menu.menu1() + Menu.chooseOption +
+                "Invalid option, please enter 1 or 2.\r\n" +
+                Menu.menu1() + Menu.chooseOption +
+                "Random array created:).\r\n" +
+                Menu.menu2() +
+                Menu.chooseOption +
+                "Exiting program. Bye:(\r\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
 
 }
