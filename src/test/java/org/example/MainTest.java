@@ -164,6 +164,22 @@ public class MainTest {
     }
 
     @Test
+    public void testMenu2_RemoveNumberFromArray2() {
+        String input = "5\n7\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        int[] array = new int[0];
+
+        // Executing the method
+        Main.menu2(array, new boolean[]{true}, new Scanner(System.in));
+
+        String expectedOutput = Menu.menu2() + Menu.chooseOption +
+                "There is nothing to remove;).\r\n" +
+                Menu.menu2() + Menu.chooseOption + "Exiting program. Bye:(\r\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
     public void testMenu2_RemoveArray() {
         String input = "6\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());

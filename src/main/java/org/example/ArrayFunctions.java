@@ -40,6 +40,7 @@ public class ArrayFunctions {
         }
         System.out.println();
     }
+
     //Adding new number to existing array
     public static int[] addingNumberToArray(int[] array, int number) {
         int[] newArray = new int[array.length + 1];
@@ -51,31 +52,39 @@ public class ArrayFunctions {
     }
 
     //Looking for the max number from given array
-    public static int findingMaxNumber(int[] array) {
-        int maxNumber = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > maxNumber) {
-                maxNumber = array[i];
+    public static String findingMaxNumber(int[] array) {
+        if (array.length > 0) {
+            int maxNumber = array[0];
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] > maxNumber) {
+                    maxNumber = array[i];
+                }
             }
+            return "The largest number is: " + maxNumber + ".";
         }
-        return maxNumber;
+        return "There are no numbers.";
     }
 
     //Looking for the min number from given array
-    public static int findingMinNumber(int[] array) {
-        int minNumber = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < minNumber) {
-                minNumber = array[i];
+    public static String findingMinNumber(int[] array) {
+        if (array.length > 0) {
+            int minNumber = array[0];
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] < minNumber) {
+                    minNumber = array[i];
+                }
             }
+            return "The smallest number is: " + minNumber + ".";
+        } else {
+            return "There are no numbers.";
         }
-        return minNumber;
+
     }
 
     //Delete given number from array
     public static int[] deleteNumberFromArray(int[] array, int number, boolean onlyFirst) {
         int count = 0;
-        for (int i = 0; i <array.length; i++) { //Looking for amount of the given number in given array
+        for (int i = 0; i < array.length; i++) { //Looking for amount of the given number in given array
             if (array[i] == number) {
                 count++;
                 if (onlyFirst) {

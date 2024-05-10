@@ -54,24 +54,32 @@ public class ArrayFunctionsTest {
     @Test
     public void testFindingMinandMaxNumber() {
         int[] array = {1, 3, 5, 2, 4};
-        int maxNumber = ArrayFunctions.findingMaxNumber(array);
-        int minNumber = ArrayFunctions.findingMinNumber(array);
+        int[] emptyArray = new int[0];
+        String maxNumber = ArrayFunctions.findingMaxNumber(array);
+        String minNumber = ArrayFunctions.findingMinNumber(array);
+        String noNumber = ArrayFunctions.findingMaxNumber(emptyArray);
+        String noNumber2 = ArrayFunctions.findingMinNumber(emptyArray);
 
-        assertEquals(5, maxNumber);
-        assertEquals(1, minNumber);
+        assertEquals("The largest number is: 5.", maxNumber);
+        assertEquals("The smallest number is: 1.", minNumber);
+        assertEquals("There are no numbers.", noNumber);
+        assertEquals("There are no numbers.", noNumber2);
     }
 
     @Test
     public void testDeleteNumberFromArray() {
-        int[] array = {1, 2, 3, 4, 5, 2};
-        int[] newArray = ArrayFunctions.deleteNumberFromArray(array, 2, true);
-        int[] newArray2 = ArrayFunctions.deleteNumberFromArray(array, 2, false);
-        int[] newArray3 = ArrayFunctions.deleteNumberFromArray(array, 7, true);
+        int[] arrayA = {1, 2, 3, 4, 5, 2};
+        int[] arrayB = new int[0];
+        int[] newArray = ArrayFunctions.deleteNumberFromArray(arrayA, 2, true);
+        int[] newArray2 = ArrayFunctions.deleteNumberFromArray(arrayA, 2, false);
+        int[] newArray3 = ArrayFunctions.deleteNumberFromArray(arrayA, 7, true);
+        int[] newArray4 = ArrayFunctions.deleteNumberFromArray(arrayB, 7, true);
 
         assertNotNull(newArray);
         assertArrayEquals(new int[]{1, 3, 4, 5, 2}, newArray);
         assertArrayEquals(new int[]{1, 3, 4, 5}, newArray2);
-        assertArrayEquals(array, newArray3);
+        assertArrayEquals(arrayA, newArray3);
+        assertArrayEquals(arrayB, newArray4);
     }
 
     @Test
