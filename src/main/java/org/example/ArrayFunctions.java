@@ -116,8 +116,36 @@ public class ArrayFunctions {
         return newArray;
     }
 
+    public static int[] deleteNumberFromArray2(int[] array, int number, boolean onlyFirst, int count) {
+        if (count == 0) {
+            return array;
+        }
+        int lengthOfNewArray = array.length - (onlyFirst ? 1 : count);
+        int[] newArray = new int[lengthOfNewArray];
+        int newIndex = 0;
+        int alreadyDeleted = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != number || alreadyDeleted >= count) {
+                newArray[newIndex++] = array[i];
+            } else {
+                alreadyDeleted++;
+            }
+        }
+        return newArray;
+    }
+
     public static int[] removeArray(int[] array) {
         return null;
+    }
+
+    public static int findOccurencyOfNumber(int[] array, int number) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) { //Looking for amount of the given number in given array
+            if (array[i] == number) {
+                count++;
+            }
+        }
+        return count;
     }
 
 }

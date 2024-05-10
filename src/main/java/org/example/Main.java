@@ -80,8 +80,12 @@ public class Main {
                     int lengthOfArray = array.length;
                     if (lengthOfArray > 0) {
                         int numberToRemove = readIntFromUser("Enter a number to remove: ", scanner);
-                        boolean onlyFirst = readYesNoFromUser("Remove only the first occurrence? (yes/no): ", scanner);
-                        array = ArrayFunctions.deleteNumberFromArray(array, numberToRemove, onlyFirst);
+                        int count = ArrayFunctions.findOccurencyOfNumber(array, numberToRemove);
+                        boolean onlyFirst = false;
+                        if (count > 1) {
+                            onlyFirst = readYesNoFromUser("Remove only the first occurrence? (yes/no): ", scanner);
+                        }
+                        array = ArrayFunctions.deleteNumberFromArray2(array, numberToRemove, onlyFirst, count);
                         int newLengthOFArray = array.length;
                         if (lengthOfArray > newLengthOFArray) {
                             System.out.println("Number removed;).");

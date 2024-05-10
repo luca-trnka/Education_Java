@@ -152,7 +152,7 @@ public class MainTest {
         String input = "5\n2\nyes\n7\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        int[] array = new int[]{1, 2, 3};
+        int[] array = new int[]{1, 2, 3, 2};
 
         // Executing the method
         Main.menu2(array, new boolean[]{true}, new Scanner(System.in));
@@ -165,6 +165,23 @@ public class MainTest {
 
     @Test
     public void testMenu2_RemoveNumberFromArray2() {
+        String input = "5\n2\n7\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        int[] array = new int[]{1, 2, 3};
+
+        // Executing the method
+        Main.menu2(array, new boolean[]{true}, new Scanner(System.in));
+
+        String expectedOutput = Menu.menu2() + Menu.chooseOption +
+                "Enter a number to remove: " + "Number removed;).\r\n" +
+                Menu.menu2() + Menu.chooseOption + "Exiting program. Bye:(\r\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+
+    @Test
+    public void testMenu2_RemoveNumberFromArray3() {
         String input = "5\n7\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -194,7 +211,7 @@ public class MainTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
-//------------------------------------------------------
+
 
     @Test
     public void testMenu2_ExitProgram() {
